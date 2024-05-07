@@ -7,6 +7,6 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.write('Hello world');
     res.end();
-}).listen(4000)
+}).listen(port)
 
 console.log(`Server is initialized on http://localhost:${port}`);
