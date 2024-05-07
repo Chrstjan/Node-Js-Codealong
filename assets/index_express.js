@@ -13,7 +13,27 @@ app.post('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.send('Om side');
+    res.send('Hvem er vi');
+})
+
+app.get('/work', (req, res) => {
+    res.send('Hvad kan vi');
+})
+
+app.get('/find-us', (req, res) => {
+    res.send('Find os');
+})
+
+app.get('/products', (req, res) => {
+    res.send('Produkt liste');
+})
+
+app.get('/productDetails', (req, res) => {
+    res.send('Produkt detailjer');
+})
+
+app.get('/contact', (req, res) => {
+    res.send('Kontakt side');
 })
 
 app.listen(port, () => {
