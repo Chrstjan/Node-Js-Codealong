@@ -1,0 +1,24 @@
+{
+  "name": "node-api-codealong",
+  "version": "1.0.0",
+  "description": "Api made with node js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrstjan/Node-Js-Codealong.git"
+  },
+  "keywords": [
+    "node",
+    "api"
+  ],
+  "author": "Chrstjan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chrstjan/Node-Js-Codealong/issues"
+  },
+  "homepage": "https://github.com/Chrstjan/Node-Js-Codealong#readme"
+}
