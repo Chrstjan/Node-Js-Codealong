@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Chrstjan/Node-Js-Codealong/issues"
   },
-  "homepage": "https://github.com/Chrstjan/Node-Js-Codealong#readme"
+  "homepage": "https://github.com/Chrstjan/Node-Js-Codealong#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
