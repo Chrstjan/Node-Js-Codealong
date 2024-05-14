@@ -25,6 +25,7 @@ app.get('/songs', async (req, res) => {
     }
     else {
       console.log(data);
+      res.send(data);
     }
 });
 
@@ -37,6 +38,7 @@ app.get('/artists', async (req, res) => {
     }
     else {
       console.log(data);
+      res.send(data);
     }
 })
 
@@ -49,6 +51,7 @@ app.get('/albums', async (req, res) => {
     }
     else {
       console.log(data);
+      res.send(data);
     }
 });
 
