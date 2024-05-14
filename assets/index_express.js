@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from 'dotenv';
 
+import { supabase } from './Config/supabase.config.js';
+
 const app = express();
 
 dotenv.config();
@@ -12,6 +14,42 @@ console.log(process.env.API_KEY);
 app.get("/", (req, res) => {
   console.log(req.query);
   res.send("Forside");
+});
+
+app.get('/songs', async (req, res) => {
+  const { data, error } = await supabase
+      .from('songs')
+      .select('title, id')
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log(data);
+    }
+});
+
+app.get('/artists', async (req, res) => {
+  const { data, error } = await supabase
+      .from('artist')
+      .select('*')
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log(data);
+    }
+})
+
+app.get('/albums', async (req, res) => {
+  const { data, error } = await supabase
+      .from('albums')
+      .select('title, image, artist(name)')
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log(data);
+    }
 });
 
 app.post("/", (req, res) => {
