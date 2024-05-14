@@ -1,7 +1,13 @@
 import express from "express";
+import dotenv from 'dotenv';
+
 const app = express();
 
-const port = 3000;
+dotenv.config();
+
+const port = process.env.PORT;
+
+console.log(process.env.API_KEY);
 
 app.get("/", (req, res) => {
   console.log(req.query);
