@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from 'dotenv';
 import { SongController } from "./Controllers/song.controller.js";
+import { AlbumController } from "./Controllers/album.controller.js";
+import { ArtistController } from "./Controllers/artist.controller.js";
 
 const app = express();
 
@@ -8,7 +10,7 @@ dotenv.config();
 
 const port = process.env.PORT;
 
-app.use(SongController);
+app.use(SongController, AlbumController, ArtistController);
 
 app.use((req, res) => {
   res.status(404).send("Siden blev ikke fundet");

@@ -1,0 +1,8 @@
+import express  from 'express';
+import artistModel from '../Models/artist.model.js';
+export const ArtistController = express.Router();
+
+ArtistController.get('/artists', async (req, res) => {
+    const data = await artistModel.getAllArtists()
+    res.send(data);
+});
