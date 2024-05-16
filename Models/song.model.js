@@ -43,14 +43,10 @@ export default class SongModel {
             .from('songs')
             .insert([
                 {
-                    id: formdata.id,
                     title: formdata.title,
                     content: formdata.content,
-                    created_at: formdata.created_at,
-                    updated_at: formdata.updated_at,
-                    artist_id: formdata.artist_id,
-                    lyrics: formdata.lyrics
-                    
+                    lyrics: formdata.lyrics,
+                    artist_id: formdata.artist_id
                 }
             ])
             if (error) {
@@ -61,7 +57,7 @@ export default class SongModel {
             }
         }
         catch (error) {
-            console.error(`Fejl i oprettelse af sang: ${error}`);
+            console.error(`Fejl i at oprette sang: ${error}`);
         }
     }
 }
