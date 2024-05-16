@@ -10,6 +10,8 @@ dotenv.config();
 
 const port = process.env.PORT;
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   res.send("Velkommen til SingOnline sangbog");
 })

@@ -12,3 +12,8 @@ ArtistController.get('/artists/:id', async (req, res) => {
     const data = await artistModel.getSingleArtist(id)
     res.send(data);
 });
+
+ArtistController.post('/artists', async (req, res) => {
+    const data = await artistModel.createArtist(req.body);
+    res.send(data);
+})
