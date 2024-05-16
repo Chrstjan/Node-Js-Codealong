@@ -24,6 +24,7 @@ export default class artistModel {
                 .from('artist')
                 .select('*')
                 .eq('id', id)
+                .single()
                 if (error) {
                     throw new Error(error)
                 }

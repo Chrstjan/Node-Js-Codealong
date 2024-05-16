@@ -24,6 +24,7 @@ export default class SongModel {
                 .from('songs')
                 .select('*, artist(name)')
                 .eq('id', id)
+                .single()
                 if (error) {
                     throw new Error(error)
                 }
