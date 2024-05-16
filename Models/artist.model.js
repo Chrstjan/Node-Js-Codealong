@@ -17,4 +17,22 @@ export default class artistModel {
             console.error(`Fejl af kald af artister ${error}`);
         }
     }
+
+    static async getSingleArtist(id) {
+        try {
+            const { data, error } = await supabase
+                .from('artist')
+                .select('*')
+                .eq('id', id)
+                if (error) {
+                    throw new Error(error)
+                }
+                else {
+                    return data
+                }
+        }
+        catch (error) {
+            console.error(`Fejl af kald af artist ${error}`);
+        }
+    }
 }

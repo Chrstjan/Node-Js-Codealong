@@ -18,11 +18,12 @@ export default class SongModel {
         }
     }
 
-    static async getRecordById() {
+    static async getRecordById(id) {
         try {
             const { data, error } = await supabase
                 .from('songs')
-                .select('title')
+                .select('*, artist(name)')
+                .eq('id', id)
                 if (error) {
                     throw new Error(error)
                 }

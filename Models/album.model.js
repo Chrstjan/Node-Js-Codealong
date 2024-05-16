@@ -17,4 +17,22 @@ export default class albumModel {
             console.error(`Fejl af kald af album ${error}`);
         }
     }
+
+    static async getSingleAlbum(id) {
+        try {
+            const { data, error } = await supabase
+                .from('albums')
+                .select('*, artist(name)')
+                .eq('id', id)
+            if (error) {
+                throw new Error(error)
+            }
+            else {
+                return data
+            }
+        }
+        catch (error) {
+            console.error(`Fejl af kald af album ${error}`);
+        }
+    }
 }

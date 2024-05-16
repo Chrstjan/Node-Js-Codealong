@@ -10,6 +10,10 @@ dotenv.config();
 
 const port = process.env.PORT;
 
+app.get('/', (req, res) => {
+  res.send("Velkommen til SingOnline sangbog");
+})
+
 app.use(SongController, AlbumController, ArtistController);
 
 app.use((req, res) => {
