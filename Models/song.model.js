@@ -22,7 +22,7 @@ export default class SongModel {
         try {
             const { data, error } = await supabase
                 .from('songs')
-                .select('*, artist(name)')
+                .select('id, title, content, created_at, artist(name)')
                 .eq('id', id)
                 .single()
                 if (error) {

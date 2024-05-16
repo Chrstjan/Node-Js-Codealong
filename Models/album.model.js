@@ -22,7 +22,7 @@ export default class albumModel {
         try {
             const { data, error } = await supabase
                 .from('albums')
-                .select('*')
+                .select('id, title, artist(name), release_date')
                 .eq('id', id)
                 .single()
             if (error) {
