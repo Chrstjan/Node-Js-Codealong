@@ -84,4 +84,22 @@ export default class artistModel {
             console.error(`Fejl i at update artist: ${error}`);
         }
     }
+
+    static async deleteArtist(formdata) {
+        try {
+            let { data, error } = await supabase
+                .from("artist")
+                .delete()
+                .eq("id", formdata.id)
+                if (error) {
+                    throw new Error(error.message)
+                }
+                else {
+                    return data
+                }
+        }
+        catch (error) {
+            console.error(`Error deleting artist: ${error}`);
+        }
+    }
 }

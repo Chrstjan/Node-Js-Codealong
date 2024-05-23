@@ -86,4 +86,22 @@ export default class albumModel {
             console.error(`Fejl i at update album: ${error}`);
         }
     }
+
+    static async deleteAlbum(formdata) {
+        try {
+            let { data, error} = await supabase
+                .from("albums")
+                .delete()
+                .eq("id", formdata.id)
+                if (error) {
+                    throw new Error(error.message);
+                }
+                else {
+                    return data;
+                }
+        }
+        catch (error) {
+            console.error(`Fejl i at slette album: ${error}`);
+        }
+    }
 }
