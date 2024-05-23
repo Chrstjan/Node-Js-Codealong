@@ -36,4 +36,29 @@ export default class albumModel {
             console.error(`Fejl af kald af album ${error}`);
         }
     }
+
+    static async createAlbum(formdata) {
+        try {
+            const { data, error } = await supabase
+                .from("albums")
+                .insert([
+                    {
+                        title: formdata.title,
+                        description: formdata.description,
+                        image: formdata.image,
+                        release_date: formdata.release_date,
+                        artist_id: formdata.artist_id
+                    }
+                ])
+                if (error) {
+                    throw new Error(error.message)
+                }
+                else {
+                    return data
+                }
+        }
+        catch (error) {
+            console.error(`Fejl i at oprette album: ${error}`);
+        }
+    }
 }

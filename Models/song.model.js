@@ -49,8 +49,9 @@ export default class SongModel {
                     artist_id: formdata.artist_id
                 }
             ])
+            
             if (error) {
-                throw new Error(error)
+                throw new Error(error.message)
             }
             else {
                 return data
@@ -58,6 +59,13 @@ export default class SongModel {
         }
         catch (error) {
             console.error(`Fejl i at oprette sang: ${error}`);
+            
         }
     }
+
+    // static async updateRecord(formdata) {
+    //     try {
+    //         let { data, error }
+    //     }
+    // }
 }

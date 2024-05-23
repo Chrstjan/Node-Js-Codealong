@@ -10,10 +10,14 @@ SongController.get('/songs', async (req, res) => {
 SongController.get('/songs/:id', async (req, res) => {
     const { id } = req.params;
     const data = await SongModel.getRecordById(id)
-    res.send(data)
+    res.send(data);
 });
 
 SongController.post('/songs', async (req, res) => {
     const data = await SongModel.createRecord(req.body)
-    res.send(data)
+    res.send(data);
 });
+
+SongController.put("/songs", async (req ,res) => {
+    
+})

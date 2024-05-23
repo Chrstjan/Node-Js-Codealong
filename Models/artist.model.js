@@ -38,36 +38,15 @@ export default class artistModel {
         }
     }
 
-    // static async createArtist(formdata) {
-    //     try {
-    //         const { data, error } = await supabase
-
-    //         .from('artist')
-    //         .insert([
-    //             {
-    //                 id: formdata.id,
-    //                 name: formdata.name
-    //             }
-    //         ])
-    //         if (error) {
-    //             throw new Error(error)
-    //         }
-    //         else {
-    //             return data
-    //         }
-    //     }
-    //     catch (error) {
-    //         console.error(`Fejl i opretelse af artist: ${error}`);
-    //     }
-    // }
     static async createArtist(formdata) {
         try {
             const { data, error } = await supabase
                 .from('artist')
                 .insert([
                     {
-                        id: formdata.id,
-                        name: formdata.name
+                        name: formdata.name,
+                        description: formdata.description,
+                        image: formdata.image
                     }
                 ])
                 if (error) {
