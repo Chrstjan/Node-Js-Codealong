@@ -60,4 +60,28 @@ export default class artistModel {
             console.error(`Fejl af kald af artist ${error}`);
         }
     }
+
+    static async updateArtist(formdata) {
+        try {
+            let { data, error} = await supabase
+                .from("artist")
+                .update([
+                    {
+                        name: formdata.name,
+                        description: formdata.description,
+                        image: formdata.image
+                    }
+                ])
+                .eq("id", formdata.id)
+                if (error) {
+                    throw new Error(error.message);
+                }
+                else {
+                    return data;
+                }
+        }
+        catch (error) {
+            console.error(`Fejl i at update artist: ${error}`);
+        }
+    }
 }

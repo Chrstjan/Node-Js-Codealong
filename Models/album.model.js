@@ -61,4 +61,29 @@ export default class albumModel {
             console.error(`Fejl i at oprette album: ${error}`);
         }
     }
+
+    static async updateAlbums(formdata) {
+        try {
+            let { data, error } = await supabase
+                .from("albums")
+                .update([
+                    {
+                        title: formdata.title,
+                        content: formdata.content,
+                        lyrics: formdata.lyrics,
+                        artist_id: formdata.artist_id
+                    }
+                ])
+                .eq("id", formdata.id)
+                if (error) {
+                    throw new Error(error.message);
+                }
+                else {
+                    return data;
+                }
+        }
+        catch (error) {
+            console.error(`Fejl i at update album: ${error}`);
+        }
+    }
 }
