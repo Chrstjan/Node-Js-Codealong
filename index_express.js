@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { SongController } from "./Controllers/song.controller.js";
 import { AlbumController } from "./Controllers/album.controller.js";
 import { ArtistController } from "./Controllers/artist.controller.js";
+import { ProfileController } from "./Controllers/profile.controller.js";
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.get('/', (req, res) => {
   res.send("Velkommen til SingOnline sangbog");
 })
 
-app.use(SongController, AlbumController, ArtistController);
+app.use(SongController, AlbumController, ArtistController, ProfileController);
 
 app.use((req, res) => {
   res.status(404).send("Siden blev ikke fundet");
