@@ -1,7 +1,7 @@
 import { log } from 'console';
 import { supabase } from '../Config/supabase.config.js';
 
-export default class artistModel {
+export default class ArtistModel {
     static async getAllArtists() {
         try {
             const { data, error } = await supabase

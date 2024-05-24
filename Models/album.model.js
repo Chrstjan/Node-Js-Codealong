@@ -1,6 +1,6 @@
 import { supabase } from "../Config/supabase.config.js";
 
-export default class albumModel {
+export default class AlbumModel {
     static async getAllAlbums() {
         try {
             const { data, error } = await supabase

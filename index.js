@@ -1,12 +1,28 @@
-import http from 'http';
+import express from "express";
+import dotenv from 'dotenv';
+import { SongController } from "./Controllers/song.controller.js";
+import { AlbumController } from "./Controllers/album.controller.js";
+import { ArtistController } from "./Controllers/artist.controller.js";
+import { ProfileController } from "./Controllers/profile.controller.js";
 
-const port = 4000;
+const app = express();
 
-http.createServer((req, res) => {
-    console.log(`Webserver is now running on http://localhost:${port}`);
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.write('Hello world');
-    res.end();
-}).listen(4000)
+dotenv.config();
 
-console.log(`Server is initialized on http://localhost:${port}`);
+const port = process.env.PORT;
+
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+  res.send("Velkommen til SingOnline sangbog");
+})
+
+app.use(SongController, AlbumController, ArtistController, ProfileController);
+
+app.use((req, res) => {
+  res.status(404).send("Siden blev ikke fundet");
+});
+
+app.listen(port, () => {
+  console.log(`Webserver is running on http://localhost:${port}`);
+});
