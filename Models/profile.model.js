@@ -57,7 +57,7 @@ export default class ProfileModel {
                 .from("profiles")
                 .insert([
                     {
-                        firstname: formdata.formdata,
+                        firstname: formdata.firstname,
                         middle_name: formdata.middle_name,
                         lastname: formdata.lastname,
                         address: formdata.address,
