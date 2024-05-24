@@ -1,6 +1,11 @@
 import { supabase } from "../Config/supabase.config.js";
 
 export default class ProfileModel {
+    /*
+     This selects all the rows from the table in the
+     profiles table, and returns all of the data object
+     inside that table in a array
+    */
     static async getAllProfiles() {
         try {
             const { data, error } = await supabase
@@ -18,6 +23,11 @@ export default class ProfileModel {
         }
     }
 
+    /*
+     This selects all the rows from the table in the
+     profiles table, and returns the data object with the id
+     that matches the id from the url paramenter 
+     */
     static async getProfileById(id) {
         try {
             const { data, error } = await supabase
@@ -36,6 +46,11 @@ export default class ProfileModel {
         }
     }
 
+    /*
+     This selects the profiles table and 
+     creates a new data object with key value pairs
+     that comes from user input in a form
+    */
     static async createProfile(formdata) {
         try {
             const { data, error } = await supabase
@@ -67,6 +82,12 @@ export default class ProfileModel {
         }
     }
 
+    /*
+     This selects the profiles table and 
+     gets the specific data object with the correct id to 
+     update the data object with the new key value pairs
+     that comes from user input in a form
+    */
     static async updateProfile(formdata) {
         try {
             let { data, error } = await supabase
@@ -99,6 +120,11 @@ export default class ProfileModel {
         }
     }
 
+    /*
+     This selects the profiles table and 
+     gets the specific data object with 
+     the correct id to delete
+    */
     static async deleteProfile(formdata) {
         try {
             let { data, error } = await supabase
