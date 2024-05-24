@@ -5,7 +5,7 @@ export const ProfileController = express.Router();
 //This router gets all the profiles data objects in a array
 ProfileController.get("/profiles", async (req, res) => {
     const data = await ProfileModel.getAllProfiles();
-    res.send(data);
+    res.status(200).send(data);
 });
 
 /*
@@ -17,13 +17,13 @@ ProfileController.get("/profiles/:id", async (req, res) => {
     //Using a destructuring assignment for more clearn code
     const { id } = req.params;
     const data = await ProfileModel.getProfileById(id)
-    res.send(data);
+    res.status(200).send(data);
 });
 
 //This router creates a profile data object from the values from a post form
 ProfileController.post("/profiles", async (req, res) => {
     const data = await ProfileModel.createProfile(req.body);
-    res.send(data);
+    res.status(201).send(data);
 });
 
 /*
@@ -34,7 +34,7 @@ ProfileController.post("/profiles", async (req, res) => {
  */
 ProfileController.put("/profiles", async (req, res) => {
     const data = await ProfileModel.updateProfile(req.body);
-    res.send(data);
+    res.status(200).send(data);
 });
 
 /*
@@ -44,5 +44,5 @@ ProfileController.put("/profiles", async (req, res) => {
  */
 ProfileController.delete("/profiles", async (req, res) => {
     const data = await ProfileModel.deleteProfile(req.body);
-    res.send(data);
+    res.status(200).send(data);
 })
