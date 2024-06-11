@@ -25,8 +25,6 @@ app.use((req, res) => {
   res.status(404).send("Siden blev ikke fundet");
 });
 
-// app.listen(port, () => {
-//   console.log(`Webserver is running on http://localhost:${port}`);
-// });
-
-export default app;
+app.listen(port, () => {
+  console.log(`Webserver is running on http://localhost:${port}`);
+});
